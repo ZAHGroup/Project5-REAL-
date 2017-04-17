@@ -1,3 +1,5 @@
+package prj5;
+
 import CS2114.CircleShape;
 import CS2114.WindowSide;
 import CS2114.TextShape;
@@ -7,34 +9,33 @@ import CS2114.Button;
 import CS2114.Shape;
 import CS2114.Window;
 
-public class DataWindow 
-{
+public class DisplayWindow {
     private LinkedList dataList;
-    
+
     private Window window;
-    
+
     private Button repByHobbyButton;
-    
+
     private Button repByMajorButton;
-    
+
     private Button sortArtistsButton;
-    
+
     private Button sortSongTitleButton;
-    
+
     private Button sortYearButton;
-    
+
     private Button sortGenreButton;
-    
+
     private Button nextButton;
-    
+
     private Button previousButton;
-    
+
     private Button quitButton;
-    
-    public DataWindow()
-    {
+
+
+    public DataWindow() {
         window = new Window();
-        
+
         repByHobbyButton = new Button("Represent By Hobby");
         repByMajorButton = new Button("Represent By Major");
         sortArtistsButton = new Button("Sort Artists");
@@ -44,7 +45,7 @@ public class DataWindow
         nextButton = new Button("Next");
         previousButton = new Button("Previous");
         quitButton = new Button("Quit");
-        
+
         window.addButton(repByHobbyButton, WindowSide.SOUTH);
         window.addButton(repByMajorButton, WindowSide.SOUTH);
         window.addButton(sortArtistsButton, WindowSide.NORTH);
@@ -54,7 +55,7 @@ public class DataWindow
         window.addButton(nextButton, WindowSide.NORTH);
         window.addButton(previousButton, WindowSide.NORTH);
         window.addButton(quitButton, WindowSide.SOUTH);
-        
+
         repByHobbyButton.onClick(this, "clickedSortHobby");
         repByMajorButton.onClick(this, "clickedSortMajor");
         sortArtistsButton.onClick(this, "clickedSortArtist");
@@ -65,44 +66,44 @@ public class DataWindow
         previousButton.onClick(this, "clickedPrevious");
         quitButton.onClick(this, "clickedQuit");
     }
-    
-    public void clickedSortHobby(Button button)
-    {
-        
+
+
+    public void clickedSortHobby(Button button) {
+
     }
-    
-    public void clickedSortMajor(Button button)
-    {
-        
+
+
+    public void clickedSortMajor(Button button) {
+
     }
-    
-    public void clickedSortRegion(Button button)
-    {
-        
+
+
+    public void clickedSortRegion(Button button) {
+
     }
-    
-    public void clickedSortArtist(Button button)
-    {
-        
+
+
+    public void clickedSortArtist(Button button) {
+
     }
-    
-    public void clickedSortYear(Button button)
-    {
-        
+
+
+    public void clickedSortYear(Button button) {
+
     }
-    
-    public void clickedNext(Button button)
-    {
-        
+
+
+    public void clickedNext(Button button) {
+
     }
-    
-    public void clickedPrevious(Button button)
-    {
-        
+
+
+    public void clickedPrevious(Button button) {
+
     }
-    
+
+
     public void clickedQuit(Button button)
     {
         System.exit(0);
     }
-}
