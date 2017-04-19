@@ -20,6 +20,21 @@ public class Input
     // List of people that took the survey.
     private static LinkedList<Person> people;
 
+    // Array of hobby choices.
+    private static int[] hobbyArray =
+    { 0, 0, 0, 0 };
+
+    // Array of major occurences.
+    private static int[] majorsArray =
+    { 0, 0, 0, 0 };
+
+    // Array of region occurences
+    private static int[] regionsArray =
+    { 0, 0, 0, 0 };
+    
+    // GUI
+    private DisplayWindow window;
+
 
     /**
      * Default constructor for the Input file
@@ -38,10 +53,10 @@ public class Input
         readMusicData(musicInfo);
         people = new LinkedList<Person>();
 
-        readMusicData(studentInfo);
+        readStudentData(studentInfo);
         System.out.println(music.getSize());
 
-        // new DisplayWindow(music);
+        window = new DisplayWindow(music);
     }
 
 
@@ -66,6 +81,34 @@ public class Input
         }
     }
 
+    /**
+     * Reads data on the song list
+     * 
+     * @param fileName
+     *            of song read
+     * @throws FileNotFoundException
+     */
+    public void readMusicData(String fileName) throws FileNotFoundException {
+        Scanner scanner = null;
+        boolean cont = true;
+        try {
+            scanner = new Scanner(new File(fileName));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            cont = false;
+        }
+        scanner.nextLine().trim().split(",");
+        if (cont && fileName != null) {
+            String[] val;
+            scanner.hasNextLine();
+            while (scanner.hasNextLine()) {
+                val = scanner.nextLine().trim().split(",");
+                music.addToLast(new Songs(val[0], val[1], val[2], val[3]));
+            }
+            scanner.close();
+        }
+
+    }
 
     /**
      * Reads the file given in the argument.
@@ -75,7 +118,7 @@ public class Input
      * @throws FileNotFoundException
      *             if file is not found.
      */
-    public void readMusicData(String fileName) throws FileNotFoundException
+    public void readStudentData(String fileName) throws FileNotFoundException
     {
         Boolean fileExists = true;
         Scanner input = null;
@@ -94,9 +137,9 @@ public class Input
             while (input.hasNextLine())
             {
                 String[] data = input.nextLine().trim().split(",");
+                String[] str = new String[data.length + 1];
                 if (data.length == (music.getSize() * 2 + 4))
                 {
-                    String[] str = new String[data.length + 1];
                     for (int i = 0; i < data.length; i++)
                     {
                         str[i] = data[i];
@@ -118,40 +161,40 @@ public class Input
 
                     if (major.equals("Math or CMDA"))
                     {
-                        majorArray[0] += 1;
+                        majorsArray[0] = majorsArray[0] + 1;
                     }
                     else if (major.equals("Computer Science"))
                     {
-                        majorArray[1] += 1;
+                        majorsArray[1] = majorsArray[1] + 1;
                     }
                     else if (major.equals("Other Engineering"))
                     {
-                        majorArray[2] += 1;
+                        majorsArray[2] = majorsArray[2] + 1;
                     }
                     else
                     {
-                        majorArray[3] += 1;
+                        majorsArray[3] = majorsArray[3] + 1;
                     }
 
                     String region = data[3];
                     if (region.equals("Northeast"))
                     {
-                        regionArray[0] += 1;
+                        regionsArray[0] = regionsArray[0] + 1;
                     }
                     else if (region.equals("Southeast"))
                     {
-                        regionArray[1] += 1;
+                        regionsArray[1] = regionsArray[1] + 1;
 
                     }
                     else if (region.equals(
                         "United States (other than Southeast "
                             + "or Northwest)"))
                     {
-                        regionArray[2] += 1;
+                        regionsArray[2] = regionsArray[2] + 1;
                     }
                     else
                     {
-                        regionArray[3] += 1;
+                        regionsArray[3] = regionsArray[3] + 1;
                     }
 
                     String hobby = data[4];
@@ -173,7 +216,7 @@ public class Input
                         hobbyArray[3] += 1;
                     }
 
-                    people.add(new Person(hobby, major, region));
+                    people.addToLast(new Person(hobby, major, region));
 
                     int songIndex = 0;
                     for (int i = 5; i < data.length - 1; i += 2)
@@ -216,6 +259,46 @@ public class Input
                 }
 
             }
+        }
+    }
+
+
+    /**
+     * Finds the corresponding index of either the hobby, major or region of the
+     * person who liked that song
+     * 
+     * @param actual
+     *            the actual value of the Song
+     * @param case1
+     *            the first case to be checked against
+     * @param case2
+     *            the second case to be checked against
+     * @param case3
+     *            the third case to be checked against
+     * @return int
+     */
+    private static int getCorrespondingIndex(
+        String actual,
+        String case1,
+        String case2,
+        String case3)
+    {
+
+        if (actual.equals(case1))
+        {
+            return 0;
+        }
+        else if (actual.equals(case2))
+        {
+            return 1;
+        }
+        else if (actual.equals(case3))
+        {
+            return 2;
+        }
+        else
+        {
+            return 3;
         }
     }
 

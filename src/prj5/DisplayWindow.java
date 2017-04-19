@@ -31,9 +31,12 @@ public class DisplayWindow {
     private Button previousButton;
 
     private Button quitButton;
+    
+    private MusicList songs;
 
 
-    public DisplayWindow() {
+    public DisplayWindow(MusicList music) {
+        songs = music;
         window = new Window();
 
         repByHobbyButton = new Button("Represent By Hobby");
