@@ -5,6 +5,7 @@ import java.util.Comparator;
 /**
  * Organizes the music in different ways.
  * @author Zorian Thornton  zorian15
+ * @author Ahmad Ayub aayub98
  * @version 2017.04.17
  *
  */

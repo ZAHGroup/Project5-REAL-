@@ -5,36 +5,41 @@ package prj5;
  * be used for data storage.
  * 
  * @author Zorian Thornton zorian15
+ * @author Ahmad Ayub aayub98 
  * @version 2017.04.17
  *
  * @param <T>
  */
-public class LinkedList<T>
-{
-    // The head reference
-    Node<T> head;
+public class LinkedList<T> {
+    // ~ Fields ................................................................
+    /**
+     * A reference to the first item on the list.
+     */
+    Node<T> firstNode;
 
-    // The size of the list
+    /**
+     * The size of the list.
+     */
     private int size;
 
 
+    // ~ Constructor ...........................................................
     /**
-     * Creates a new LinedList() object.
+     * Creates a new LinkedList() object.
      */
-    public LinkedList()
-    {
-        head = null;
+    public LinkedList() {
+        firstNode = null;
         size = 0;
     }
 
 
+    // ~ Methods ...............................................................
     /**
      * Returns the size of the list.
      * 
      * @return the size of the list.
      */
-    public int getSize()
-    {
+    public int getSize() {
         return size;
     }
 
@@ -45,20 +50,18 @@ public class LinkedList<T>
      * 
      * @return the boolean explaining if the list is empty.
      */
-    public boolean isEmpty()
-    {
+    public boolean isEmpty() {
         return (size == 0);
     }
 
 
     /**
-     * Clears the list by setting the head reference to null,
+     * Clears the list by setting the firstNode reference to null,
      * the next reference equal to null, and the size to 0.
      */
-    public void clear()
-    {
-        head.next = null;
-        head = null;
+    public void clear() {
+        firstNode.setNextNode(null);
+        firstNode = null;
         size = 0;
     }
 
@@ -71,17 +74,71 @@ public class LinkedList<T>
      *            the index to be returned.
      * @return the entry at the given index.
      */
-    public T getEntry(int index)
-    {
+    public T getEntry(int index) {
         int seekIndex = 0;
-        Node<T> curr = head;
-        T entry = null;
-        while (seekIndex < index)
-        {
-            curr = curr.next;
+        Node<T> curr = firstNode;
+        while (seekIndex < index) {
+            curr = curr.getNextNode();
             seekIndex++;
         }
         return curr.getData();
+    }
+
+
+    /**
+     * Returns the node at that position.
+     * 
+     * @param givenPostiion
+     *            the position
+     * @return the node at that position
+     */
+    private Node<T> getNodeAt(int givenPostiion) {
+        assert (firstNode != null) && (1 <= givenPostiion)
+            && (givenPostiion <= size);
+        Node<T> currentNode = firstNode;
+        // Traverse the chain to locate the desired node
+        // (skipped if givenPosition is 1)
+        for (int counter = 1; counter < givenPostiion; counter++) {
+            currentNode = currentNode.getNextNode();
+        }
+        assert currentNode != null;
+        return currentNode;
+    }
+    
+    /**
+     * Adds an entry to the beginning of the list.
+     * @param newEntry the entry being added
+     */
+    public void addToFirst(T newEntry)
+    {
+        Node<T> newNode = new Node<T>(newEntry);
+        newNode.setNextNode(firstNode);
+        firstNode = newNode;
+    }
+    
+    /**
+     * Adds a node to the given position.
+     * @param newPosition the position of the new node
+     * @param newEntry the data of the new node
+     */
+    public void add(int newPosition, T newEntry)
+    {
+        Node<T> newNode = new Node<T>(newEntry);
+        Node<T> nodeBefore = getNodeAt(newPosition - 1);
+        Node<T> nodeAfter = nodeBefore.getNextNode();
+        newNode.setNextNode(nodeAfter);
+        nodeBefore.setNextNode(newNode);
+    }
+    
+    /**
+     * Adds a node to the end.
+     * @param newEntry the data being added
+     */
+    public void addToLast(T newEntry)
+    {
+        Node<T> newNode = new Node<T>(newEntry);
+        Node<T> lastNode = getNodeAt(size);
+        lastNode.setNextNode(newNode);
     }
 
 
@@ -93,8 +150,7 @@ public class LinkedList<T>
      * @param <T>
      *            the generic type.
      */
-    private static class Node<T>
-    {
+    private static class Node<T> {
         // Data stored in the node.
         private T data;
 
@@ -109,24 +165,8 @@ public class LinkedList<T>
          * @param input
          *            the data to be stored.
          */
-        public Node(T input)
-        {
+        public Node(T input) {
             data = input;
-        }
-
-
-        /**
-         * Creates a node with data and a next reference.
-         * 
-         * @param input
-         *            the data to be stored.
-         * @param nextNode
-         *            the next reference
-         */
-        public Node(T input, Node<T> nextNode)
-        {
-            data = input;
-            next = nextNode;
         }
 
 
@@ -136,8 +176,7 @@ public class LinkedList<T>
          * @param nextNode
          *            the next node to be referenced.
          */
-        public void setNextNode(Node<T> nextNode)
-        {
+        public void setNextNode(Node<T> nextNode) {
             next = nextNode;
         }
 
@@ -148,8 +187,7 @@ public class LinkedList<T>
          * @param input
          *            the updated data.
          */
-        public void setData(T input)
-        {
+        public void setData(T input) {
             data = input;
         }
 
@@ -159,8 +197,7 @@ public class LinkedList<T>
          * 
          * @return the data stored in the node.
          */
-        public T getData()
-        {
+        public T getData() {
             return data;
         }
 
@@ -171,11 +208,9 @@ public class LinkedList<T>
          * 
          * @return the next node reference.
          */
-        public Node<T> getNextNode()
-        {
+        public Node<T> getNextNode() {
             return next;
         }
-
     }
 
 }
