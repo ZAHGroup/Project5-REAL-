@@ -33,7 +33,7 @@ public class DisplayWindow {
     private Button quitButton;
 
 
-    public DataWindow() {
+    public DisplayWindow() {
         window = new Window();
 
         repByHobbyButton = new Button("Represent By Hobby");
