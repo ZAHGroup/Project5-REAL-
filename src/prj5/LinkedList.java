@@ -165,16 +165,69 @@ public class LinkedList<T>
     public void addToLast(T newEntry)
     {
         Node<T> current = firstNode;
-        if (isEmpty()) {
+        if (isEmpty())
+        {
             firstNode = new Node<T>(newEntry);
-        } else {
-            for (int i = 0; i < size - 1; i++) {
+        }
+        else
+        {
+            for (int i = 0; i < size - 1; i++)
+            {
                 current = current.next;
             }
             current.setNextNode(new Node<T>(newEntry));
         }
         size++;
     }
+
+
+    private void insertInOrder(Node nodeToInsert, Object arg)
+    {
+        Songs item = (Songs)nodeToInsert.getData();
+        Node<T> currentNode = firstNode;
+        Node<T> previousNode = null;
+        // Locate insertion point
+        while ((currentNode != null) && (item.compare(currentNode.getData(),
+            arg) > 0))
+        {
+            previousNode = currentNode;
+            currentNode = currentNode.getNextNode();
+        } // end while
+          // Make the insertion
+        if (previousNode != null)
+        { // Insert between previousNode and
+          // currentNode
+            previousNode.setNextNode(nodeToInsert);
+            nodeToInsert.setNextNode(currentNode);
+        }
+        else // Insert at beginning
+        {
+            nodeToInsert.setNextNode(firstNode);
+            firstNode = nodeToInsert;
+        } // end if
+    } // end insertInOrder
+
+
+    public void insertionSort(Object arg)
+    {
+        // If zero or one item is in the chain, there is
+        // nothing to do
+        if (size > 1)
+        {
+            assert firstNode != null;
+            // Break chain into 2 pieces: sorted and
+            // unsorted
+            Node<T> unsortedPart = firstNode.getNextNode();
+            assert unsortedPart != null;
+            firstNode.setNextNode(null);
+            while (unsortedPart != null)
+            {
+                Node<T> nodeToInsert = unsortedPart;
+                unsortedPart = unsortedPart.getNextNode();
+                insertInOrder(nodeToInsert, arg);
+            } // end while
+        } // end if
+    } // end insertionSort
 
 
     /**
@@ -253,5 +306,4 @@ public class LinkedList<T>
             return next;
         }
     }
-
 }
