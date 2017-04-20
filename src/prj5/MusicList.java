@@ -46,62 +46,16 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
             System.out.println("Song Year: " + getEntry(i).getYear());
             System.out.println("Heard");
             System.out.println("reading:" + ((getEntry(i).getHobbyHeard(0)
-                * 100) / totalReading) + " art:" + ((getEntry(i)
-                    .getHobbyHeard(1) * 100) / totalArt) + " sports:"
-                + ((getEntry(i).getHobbyHeard(2) * 100) / totalSports)
-                + " music" + ((getEntry(i).getHobbyHeard(3) * 100)
-                    / totalMusic));
+                * 100) / totalReading) + " art:" + ((getEntry(i).getHobbyHeard(
+                    1) * 100) / totalArt) + " sports:" + ((getEntry(i)
+                        .getHobbyHeard(2) * 100) / totalSports) + " music"
+                + ((getEntry(i).getHobbyHeard(3) * 100) / totalMusic));
             System.out.println("Likes");
             System.out.println("reading:" + ((getEntry(i).getHobbyLiked(0)
-                * 100) / totalReading) + " art:" + ((getEntry(i)
-                    .getHobbyLiked(1) * 100) / totalArt) + " sports:"
-                + ((getEntry(i).getHobbyLiked(2) * 100) / totalSports)
-                + " music" + ((getEntry(i).getHobbyLiked(3) * 100)
-                    / totalMusic));
-        }
-        System.out.print("\n");
-        for (int i = 0; i < getSize(); i++) {
-            totalReading += getEntry(i).getHobbyHeard(0) + getEntry(i)
-                .getHobbyLiked(0);
-            totalArt += getEntry(i).getHobbyHeard(1) + getEntry(i)
-                .getHobbyLiked(1);
-            totalSports += getEntry(i).getHobbyHeard(2) + getEntry(i)
-                .getHobbyLiked(2);
-            totalMusic += getEntry(i).getHobbyHeard(3) + getEntry(i)
-                .getHobbyLiked(3);
-            if (totalReading == 0) {
-                totalReading = 1;
-            }
-            if (totalArt == 0) {
-                totalArt = 1;
-            }
-            if (totalSports == 0) {
-                totalSports = 1;
-            }
-            if (totalMusic == 0) {
-                totalMusic = 1;
-            }
-
-            ans += "";
-            System.out.println("Song Title: " + getEntry(i).getTitle());
-            ;
-            System.out.println("Song Artist: " + getEntry(i).getArtist());
-            System.out.println("Song Genre: " + getEntry(i).getGenre());
-            System.out.println("Song Year: " + getEntry(i).getYear());
-            System.out.println("Heard");
-            System.out.println("reading:" + ((getEntry(i).getHobbyHeard(0)
-                * 200) / totalReading) + " art:" + ((getEntry(i)
-                    .getHobbyHeard(1) * 200) / totalArt) + " sports:"
-                + ((getEntry(i).getHobbyHeard(2) * 200) / totalSports)
-                + " music" + ((getEntry(i).getHobbyHeard(3) * 200)
-                    / totalMusic));
-            System.out.println("Likes");
-            System.out.println("reading:" + ((getEntry(i).getHobbyLiked(0)
-                * 200) / totalReading) + " art:" + ((getEntry(i)
-                    .getHobbyLiked(1) * 200) / totalArt) + " sports:"
-                + ((getEntry(i).getHobbyLiked(2) * 200) / totalSports)
-                + " music" + ((getEntry(i).getHobbyLiked(3) * 200)
-                    / totalMusic));
+                * 100) / totalReading) + " art:" + ((getEntry(i).getHobbyLiked(
+                    1) * 100) / totalArt) + " sports:" + ((getEntry(i)
+                        .getHobbyLiked(2) * 100) / totalSports) + " music"
+                + ((getEntry(i).getHobbyLiked(3) * 100) / totalMusic));
         }
 
         return ans;
@@ -146,7 +100,6 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
          */
         public Songs next() {
             if (hasNext()) {
-                @SuppressWarnings("unchecked")
                 Songs nextEntry = (Songs)getEntry(index++);
                 return nextEntry;
             }
@@ -159,7 +112,7 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
 
 
     public Iterator<Songs> iterator() {
-        return new MusicListIterator();
+        return new MusicListIterator<Songs>();
     }
 
 }
