@@ -1,6 +1,5 @@
 package prj5;
 
-
 /**
  * The LinkedList class that will
  * be used for data storage.
@@ -162,6 +161,50 @@ public class LinkedList<T> {
         }
         size++;
     }
+
+
+    private void insertInOrder(Node nodeToInsert, Object arg) {
+        Songs item = (Songs)nodeToInsert.getData();
+        Node<T> currentNode = firstNode;
+        Node<T> previousNode = null;
+        // Locate insertion point
+        while ((currentNode != null) && (item.compare(currentNode.getData(),
+            arg) > 0)) {
+            previousNode = currentNode;
+            currentNode = currentNode.getNextNode();
+        } // end while
+          // Make the insertion
+        if (previousNode != null) { // Insert between previousNode and
+                                    // currentNode
+            previousNode.setNextNode(nodeToInsert);
+            nodeToInsert.setNextNode(currentNode);
+        }
+        else // Insert at beginning
+        {
+            nodeToInsert.setNextNode(firstNode);
+            firstNode = nodeToInsert;
+        } // end if
+    } // end insertInOrder
+
+
+    public void insertionSort(Object arg) {
+        // If zero or one item is in the chain, there is
+        // nothing to do
+        if (size > 1) {
+            assert firstNode != null;
+            // Break chain into 2 pieces: sorted and
+            // unsorted
+            Node<T> unsortedPart = firstNode.getNextNode();
+            assert unsortedPart != null;
+            firstNode.setNextNode(null);
+            while (unsortedPart != null) {
+                Node<T> nodeToInsert = unsortedPart;
+                unsortedPart = unsortedPart.getNextNode();
+                insertInOrder(nodeToInsert, arg);
+            } // end while
+        } // end if
+    } // end insertionSort
+
 
     /**
      * The node class to be used in LinkedList.

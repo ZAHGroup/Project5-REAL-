@@ -10,7 +10,7 @@ import java.util.Comparator;
  * @version 2017.04.17
  *
  */
-public class Songs implements Comparator
+public class Songs implements Comparator<Object>
 {
     /**
      * field for array for the hobbys that have heard a song the hobbys starting
@@ -127,10 +127,48 @@ public class Songs implements Comparator
         return genre;
     }
 
+    /**
+     * Checks to see if two objects are equal by ensuring they are both objects,
+     * both of the same class, and both have the same title, artist, year, and
+     * genre
+     * 
+     * @param obj
+     *            the song that is being tested for equality
+     * @return boolean of whether or not the two objects are equal
+     */
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+        Songs other = (Songs) obj;
+        return this.title.equals(other.title)
+                && this.artist.equals(other.artist)
+                && this.genre.equals(other.genre)
+                && this.year == other.getYear();
 
+    }
+    
     public int compare(Object o1, Object o2)
     {
-        // TODO Auto-generated method stub
+        Songs compSong = (Songs) o1;
+        String compBy = (String) o2;
+
+        if (compBy.equals("Title")) {
+            return this.getTitle().compareTo(compSong.getTitle());
+        } else if (compBy.equals("Artist")) {
+            return this.getArtist().compareTo(compSong.getArtist());
+        } else if (compBy.equals("Genre")) {
+            return this.getGenre().compareTo(compSong.getGenre());
+        } else if (compBy.equals("Year")) {
+            return this.getYear().compareTo(((Songs)o1).getYear());
+        }
+
         return 0;
     }
 

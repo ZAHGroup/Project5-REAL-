@@ -11,12 +11,12 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
      * @return string of what's in the list
      */
     public String toString() {
-        int totalReading = 0;
-        int totalArt = 0;
-        int totalSports = 0;
-        int totalMusic = 0;
         String ans = "";
         for (int i = 0; i < getSize(); i++) {
+            int totalReading = 0;
+            int totalArt = 0;
+            int totalSports = 0;
+            int totalMusic = 0;
             totalReading += getEntry(i).getHobbyHeard(0) + getEntry(i)
                 .getHobbyLiked(0);
             totalArt += getEntry(i).getHobbyHeard(1) + getEntry(i)
@@ -56,11 +56,13 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
                     1) * 100) / totalArt) + " sports:" + ((getEntry(i)
                         .getHobbyLiked(2) * 100) / totalSports) + " music"
                 + ((getEntry(i).getHobbyLiked(3) * 100) / totalMusic));
+            System.out.print("\n");
         }
 
         return ans;
     }
 
+    
 
     /**
      * Inner iterator class for the MusicList.

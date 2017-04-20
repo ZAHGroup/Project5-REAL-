@@ -63,6 +63,9 @@ public class Input {
         input.readMusicData(args[1]);
 
         input.readStudentData(args[0]);
+        music.insertionSort("Genre");
+        System.out.print(music.toString());
+        music.insertionSort("Title");
         System.out.println(music.toString());
 
         if (args.length == 2) {
