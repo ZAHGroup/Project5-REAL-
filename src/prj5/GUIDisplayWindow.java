@@ -17,7 +17,8 @@ import CS2114.Window;
  * @version 2017.04.16
  *
  */
-public class GUIDisplayWindow {
+public class GUIDisplayWindow
+{
     private LinkedList dataList;
 
     private Window window;
@@ -39,11 +40,12 @@ public class GUIDisplayWindow {
     private Button previousButton;
 
     private Button quitButton;
-    
+
     private MusicList songs;
 
 
-    public GUIDisplayWindow(MusicList music) {
+    public GUIDisplayWindow(MusicList music)
+    {
         songs = music;
         window = new Window();
 
@@ -79,43 +81,38 @@ public class GUIDisplayWindow {
     }
 
 
-    public void clickedSortHobby(Button button) {
-
-    }
-
-
-    public void clickedSortMajor(Button button) {
-
-    }
-
-
-    public void clickedSortRegion(Button button) {
-
-    }
-
-
-    public void clickedSortArtist(Button button) {
-
-    }
-
-
-    public void clickedSortYear(Button button) {
-
-    }
-
-
-    public void clickedNext(Button button) {
-
-    }
-
-
-    public void clickedPrevious(Button button) {
-
-    }
-
-
-    public void clickedQuit(Button button)
+    public void clickedSortHobby(Button button)
     {
-        System.exit(0);
+
+    }
+
+
+    public void clickedSortMajor(Button button)
+    {
+
+    }
+
+
+    public void clickedSortRegion(Button button)
+    {
+
+    }
+
+
+    public void clickedSortArtist(Button button)
+    {
+
+    }
+
+
+    public void clickedSortYear(Button button)
+    {
+
+    }
+
+
+    public void clickedNext(Button button)
+    {
+
     }
 }
