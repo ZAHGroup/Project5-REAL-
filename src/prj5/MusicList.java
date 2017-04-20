@@ -7,6 +7,7 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs>
 {
 
     /**
+<<<<<<< HEAD
      * Returns the total number of students that like reading.
      * 
      * @return the total number of students that like reading.
@@ -87,10 +88,13 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs>
 
 
     /**
+=======
+>>>>>>> 90d440a90142c9df44832f465949395e745fd717
      * strings the song list together
      * 
      * @return string of what's in the list
      */
+<<<<<<< HEAD
     public String toString()
     {
         int totalReading = 0;
@@ -100,6 +104,15 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs>
         String ans = "";
         for (int i = 0; i < getSize(); i++)
         {
+=======
+    public String toString() {
+        String ans = "";
+        for (int i = 0; i < getSize(); i++) {
+            int totalReading = 0;
+            int totalArt = 0;
+            int totalSports = 0;
+            int totalMusic = 0;
+>>>>>>> 90d440a90142c9df44832f465949395e745fd717
             totalReading += getEntry(i).getHobbyHeard(0) + getEntry(i)
                 .getHobbyLiked(0);
             totalArt += getEntry(i).getHobbyHeard(1) + getEntry(i)
@@ -133,22 +146,31 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs>
             System.out.println("Song Year: " + getEntry(i).getYear());
             System.out.println("Heard");
             System.out.println("reading:" + ((getEntry(i).getHobbyHeard(0)
+<<<<<<< HEAD
                 / totalReading) * 100.0) + " art:" + ((getEntry(i)
                     .getHobbyHeard(1) / totalArt) * 100) + " sports:"
                 + ((getEntry(i).getHobbyHeard(2) / totalSports) * 100)
                 + " music" + ((getEntry(i).getHobbyHeard(3) / totalMusic)
                     * 100));
+=======
+                * 100) / totalReading) + " art:" + ((getEntry(i).getHobbyHeard(
+                    1) * 100) / totalArt) + " sports:" + ((getEntry(i)
+                        .getHobbyHeard(2) * 100) / totalSports) + " music"
+                + ((getEntry(i).getHobbyHeard(3) * 100) / totalMusic));
+>>>>>>> 90d440a90142c9df44832f465949395e745fd717
             System.out.println("Likes");
             System.out.println("reading:" + ((getEntry(i).getHobbyLiked(0)
-                / totalReading) * 100) + " art:" + ((getEntry(i).getHobbyLiked(
-                    1) / totalArt) * 100) + " sports:" + ((getEntry(i)
-                        .getHobbyLiked(2) / totalSports) * 100) + " music"
-                + ((getEntry(i).getHobbyLiked(3) / totalMusic) * 100));
+                * 100) / totalReading) + " art:" + ((getEntry(i).getHobbyLiked(
+                    1) * 100) / totalArt) + " sports:" + ((getEntry(i)
+                        .getHobbyLiked(2) * 100) / totalSports) + " music"
+                + ((getEntry(i).getHobbyLiked(3) * 100) / totalMusic));
+            System.out.print("\n");
         }
 
         return ans;
     }
 
+    
 
     /**
      * Inner iterator class for the MusicList.
@@ -189,11 +211,16 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs>
          * 
          * @return next entry
          */
+<<<<<<< HEAD
         public Songs next()
         {
             if (hasNext())
             {
                 @SuppressWarnings("unchecked")
+=======
+        public Songs next() {
+            if (hasNext()) {
+>>>>>>> 90d440a90142c9df44832f465949395e745fd717
                 Songs nextEntry = (Songs)getEntry(index++);
                 return nextEntry;
             }
@@ -206,9 +233,14 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs>
     }
 
 
+<<<<<<< HEAD
     public Iterator<Songs> iterator()
     {
         return new MusicListIterator();
+=======
+    public Iterator<Songs> iterator() {
+        return new MusicListIterator<Songs>();
+>>>>>>> 90d440a90142c9df44832f465949395e745fd717
     }
 
 }
