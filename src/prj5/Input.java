@@ -32,6 +32,8 @@ public class Input
     private static int[] regionsArray =
     { 0, 0, 0, 0 };
 
+    // GUI
+    private DisplayWindow window;
 
 
     /**
