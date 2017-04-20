@@ -31,7 +31,7 @@ public class Input
     // Array of region occurences
     private static int[] regionsArray =
     { 0, 0, 0, 0 };
-    
+
     // GUI
     private DisplayWindow window;
 
@@ -50,15 +50,9 @@ public class Input
         throws FileNotFoundException
     {
         music = new MusicList();
-        readMusicData(musicInfo);
         people = new LinkedList<Person>();
-
-        readStudentData(studentInfo);
-        System.out.println(music.getSize());
-
         window = new DisplayWindow(music);
     }
-
 
     /**
      * The main method that runs the program.
@@ -70,6 +64,11 @@ public class Input
      */
     public static void main(String[] args) throws FileNotFoundException
     {
+        Input input = new Input(args[0], args[1]);
+        input.readMusicData(args[1]);
+
+        input.readStudentData(args[0]);
+        System.out.println(music.toString());
 
         if (args.length == 2)
         {
@@ -81,6 +80,7 @@ public class Input
         }
     }
 
+
     /**
      * Reads data on the song list
      * 
@@ -88,20 +88,26 @@ public class Input
      *            of song read
      * @throws FileNotFoundException
      */
-    public void readMusicData(String fileName) throws FileNotFoundException {
+    public void readMusicData(String fileName) throws FileNotFoundException
+    {
         Scanner scanner = null;
         boolean cont = true;
-        try {
+        try
+        {
             scanner = new Scanner(new File(fileName));
-        } catch (FileNotFoundException e) {
+        }
+        catch (FileNotFoundException e)
+        {
             e.printStackTrace();
             cont = false;
         }
         scanner.nextLine().trim().split(",");
-        if (cont && fileName != null) {
+        if (cont && fileName != null)
+        {
             String[] val;
             scanner.hasNextLine();
-            while (scanner.hasNextLine()) {
+            while (scanner.hasNextLine())
+            {
                 val = scanner.nextLine().trim().split(",");
                 music.addToLast(new Songs(val[0], val[1], val[2], val[3]));
             }
@@ -109,6 +115,7 @@ public class Input
         }
 
     }
+
 
     /**
      * Reads the file given in the argument.
@@ -122,6 +129,7 @@ public class Input
     {
         Boolean fileExists = true;
         Scanner input = null;
+        String[] str;
         try
         {
             input = new Scanner(new File(fileName));
@@ -137,9 +145,9 @@ public class Input
             while (input.hasNextLine())
             {
                 String[] data = input.nextLine().trim().split(",");
-                String[] str = new String[data.length + 1];
                 if (data.length == (music.getSize() * 2 + 4))
                 {
+                    str = new String[data.length + 1];
                     for (int i = 0; i < data.length; i++)
                     {
                         str[i] = data[i];

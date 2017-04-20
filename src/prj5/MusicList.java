@@ -6,6 +6,32 @@ import java.util.NoSuchElementException;
 public class MusicList extends LinkedList<Songs> implements Iterable<Songs>
 {
     /**
+     * strings the song list together
+     * @return string of what's in the list
+     */
+    public String toString() {
+        String ans = "";
+        for (int i = 0; i < getSize(); i++) {
+            ans += "";
+            System.out.println("Song Title: " + getEntry(i).getTitle());;
+            System.out.println("Song Artist: " + getEntry(i).getArtist());
+            System.out.println("Song Genre: " + getEntry(i).getGenre());
+            System.out.println("Song Year: " + getEntry(i).getYear());
+            System.out.println("Heard");
+            System.out.println("reading:" + getEntry(i).getHobbyHeard(0) + " art:"
+                    + getEntry(i).getHobbyHeard(1) + " sports:"
+                    + getEntry(i).getHobbyHeard(2) + " music"
+                    + getEntry(i).getHobbyHeard(3));
+            System.out.println("Likes");
+            System.out.println("reading:" + getEntry(i).getHobbyLiked(0) + " art:"
+                    + getEntry(i).getHobbyLiked(1) + " sports:"
+                    + getEntry(i).getHobbyLiked(2) + " music"
+                    + getEntry(i).getHobbyLiked(3));
+        }
+        
+        return ans;
+    }
+    /**
      * Inner iterator class for the MusicList.
      * 
      * @param <Songs>
