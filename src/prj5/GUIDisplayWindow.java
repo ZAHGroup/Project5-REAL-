@@ -9,7 +9,15 @@ import CS2114.Button;
 import CS2114.Shape;
 import CS2114.Window;
 
-public class DisplayWindow {
+/**
+ * This is the GUI.
+ * 
+ * @author Zorian Thornton zorian15
+ * @author Ahmad Ayub aayub98
+ * @version 2017.04.16
+ *
+ */
+public class GUIDisplayWindow {
     private LinkedList dataList;
 
     private Window window;
@@ -35,7 +43,7 @@ public class DisplayWindow {
     private MusicList songs;
 
 
-    public DisplayWindow(MusicList music) {
+    public GUIDisplayWindow(MusicList music) {
         songs = music;
         window = new Window();
 
