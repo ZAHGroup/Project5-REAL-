@@ -24,11 +24,11 @@ public class Input
     private static int[] hobbyArray =
     { 0, 0, 0, 0 };
 
-    // Array of major occurences.
+    // Array of major occurrences.
     private static int[] majorsArray =
     { 0, 0, 0, 0 };
 
-    // Array of region occurences
+    // Array of region occurrences
     private static int[] regionsArray =
     { 0, 0, 0, 0 };
 
@@ -49,7 +49,7 @@ public class Input
     {
         music = new MusicList();
         people = new LinkedList<Person>();
-        new DisplayWindow(music);
+        new GUIDisplayWindow(music);
     }
 
     /**
