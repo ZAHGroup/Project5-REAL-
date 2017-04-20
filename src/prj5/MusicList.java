@@ -15,8 +15,7 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
         for (int i = 0; i < getSize(); i++) {
             num += getEntry(i).getHobbyHeard(0) + getEntry(i).getHobbyLiked(0);
         }
-        if (num == 0)
-        {
+        if (num == 0) {
             return 1;
         }
         return num;
@@ -33,8 +32,7 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
         for (int i = 0; i < getSize(); i++) {
             num += getEntry(i).getHobbyHeard(1) + getEntry(i).getHobbyLiked(1);
         }
-        if (num == 0)
-        {
+        if (num == 0) {
             return 1;
         }
         return num;
@@ -51,8 +49,7 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
         for (int i = 0; i < getSize(); i++) {
             num += getEntry(i).getHobbyHeard(2) + getEntry(i).getHobbyLiked(2);
         }
-        if (num == 0)
-        {
+        if (num == 0) {
             return 1;
         }
         return num;
@@ -69,8 +66,7 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
         for (int i = 0; i < getSize(); i++) {
             num += getEntry(i).getHobbyHeard(3) + getEntry(i).getHobbyLiked(3);
         }
-        if (num == 0)
-        {
+        if (num == 0) {
             return 1;
         }
         return num;
@@ -83,8 +79,33 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
      * @return string of what's in the list
      */
     public String toString() {
+        int totalReading = 0;
+        int totalArt = 0;
+        int totalSports = 0;
+        int totalMusic = 0;
         String ans = "";
         for (int i = 0; i < getSize(); i++) {
+            totalReading += getEntry(i).getHobbyHeard(0) + getEntry(i)
+                .getHobbyLiked(0);
+            totalArt += getEntry(i).getHobbyHeard(1) + getEntry(i)
+                .getHobbyLiked(1);
+            totalSports += getEntry(i).getHobbyHeard(2) + getEntry(i)
+                .getHobbyLiked(2);
+            totalMusic += getEntry(i).getHobbyHeard(3) + getEntry(i)
+                .getHobbyLiked(3);
+            if (totalReading == 0) {
+                totalReading = 1;
+            }
+            if (totalArt == 0) {
+                totalArt = 1;
+            }
+            if (totalSports == 0) {
+                totalSports = 1;
+            }
+            if (totalMusic == 0) {
+                totalMusic = 1;
+            }
+
             ans += "";
             System.out.println("Song Title: " + getEntry(i).getTitle());
             ;
@@ -93,18 +114,16 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
             System.out.println("Song Year: " + getEntry(i).getYear());
             System.out.println("Heard");
             System.out.println("reading:" + ((getEntry(i).getHobbyHeard(0)
-                / totalReading()) * 100) + " art:" + ((getEntry(i)
-                    .getHobbyHeard(1) / totalArt()) * 100) + " sports:"
-                + ((getEntry(i).getHobbyHeard(2) / totalSports()) * 100)
-                + " music" + ((getEntry(i).getHobbyHeard(3) / totalMusic())
-                    * 100));
+                / totalReading) * 100) + " art:" + ((getEntry(i).getHobbyHeard(
+                    1) / totalArt) * 100) + " sports:" + ((getEntry(i)
+                        .getHobbyHeard(2) / totalSports) * 100) + " music"
+                + ((getEntry(i).getHobbyHeard(3) / totalMusic) * 100));
             System.out.println("Likes");
             System.out.println("reading:" + ((getEntry(i).getHobbyLiked(0)
-                / totalReading()) * 100) + " art:" + ((getEntry(i)
-                    .getHobbyLiked(1) / totalArt()) * 100) + " sports:"
-                + ((getEntry(i).getHobbyLiked(2) / totalSports()) * 100)
-                + " music" + ((getEntry(i).getHobbyLiked(3) / totalMusic())
-                    * 100));
+                / totalReading) * 100) + " art:" + ((getEntry(i).getHobbyLiked(
+                    1) / totalArt) * 100) + " sports:" + ((getEntry(i)
+                        .getHobbyLiked(2) / totalSports) * 100) + " music"
+                + ((getEntry(i).getHobbyLiked(3) / totalMusic) * 100));
         }
 
         return ans;
