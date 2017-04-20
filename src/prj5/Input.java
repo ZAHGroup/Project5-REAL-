@@ -33,7 +33,7 @@ public class Input
     { 0, 0, 0, 0 };
 
     // GUI
-    private DisplayWindow window;
+    //private GUIDisplayWindow window;
 
 
     /**
