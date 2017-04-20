@@ -32,8 +32,6 @@ public class Input
     private static int[] regionsArray =
     { 0, 0, 0, 0 };
 
-    // GUI
-    private DisplayWindow window;
 
 
     /**
@@ -51,7 +49,7 @@ public class Input
     {
         music = new MusicList();
         people = new LinkedList<Person>();
-        window = new DisplayWindow(music);
+        new DisplayWindow(music);
     }
 
     /**
