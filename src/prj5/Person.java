@@ -6,6 +6,8 @@ import java.util.Comparator;
  * This person class that stores the information
  * of each person that took the survey.
  * @author Zorian Thornton  zorian15
+ * @author Ahmad Ayub aayub98
+ * @author Harshitha Narayanan hnar
  * @version 2017.04.17
  *
  */

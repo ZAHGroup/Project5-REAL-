@@ -3,6 +3,15 @@ package prj5;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * A list for Songs objects.
+ * 
+ * @author Zorian Thornton zorian15
+ * @author Ahmad Ayub aayub98
+ * @author Harshitha Narayanan hnar
+ * @version 2017.04.16
+ *
+ */
 public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
 
     /**
