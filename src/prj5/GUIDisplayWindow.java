@@ -297,35 +297,6 @@ public class GUIDisplayWindow {
         return window;
     }
 
-
-    /*
-     * public void addGlyph(Button button)
-     * {
-     * window.removeAllShapes();
-     * window.repaint();
-     * 
-     * if (button.equals(sortArtistsButton))
-     * {
-     * 
-     * }
-     * 
-     * else if (button.equals(sortSongTitleButton))
-     * {
-     * 
-     * }
-     * 
-     * else if (button.equals(sortYearButton))
-     * {
-     * 
-     * }
-     * 
-     * else if (button.equals(sortGenreButton))
-     * {
-     * 
-     * }
-     * }
-     */
-
     public void clickedSortHobby(Button button) {
 
     }
