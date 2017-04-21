@@ -11,7 +11,8 @@ package prj5;
  *
  * @param <T>
  */
-public class LinkedList<T> {
+public class LinkedList<T>
+{
     // ~ Fields ................................................................
     /**
      * A reference to the first item on the list.
@@ -28,7 +29,8 @@ public class LinkedList<T> {
     /**
      * Creates a new LinkedList() object.
      */
-    public LinkedList() {
+    public LinkedList()
+    {
         firstNode = null;
         size = 0;
     }
@@ -40,7 +42,8 @@ public class LinkedList<T> {
      * 
      * @return the size of the list.
      */
-    public int getSize() {
+    public int getSize()
+    {
         return size;
     }
 
@@ -51,7 +54,8 @@ public class LinkedList<T> {
      * 
      * @return the boolean explaining if the list is empty.
      */
-    public boolean isEmpty() {
+    public boolean isEmpty()
+    {
         return (size == 0);
     }
 
@@ -60,7 +64,8 @@ public class LinkedList<T> {
      * Clears the list by setting the firstNode reference to null,
      * the next reference equal to null, and the size to 0.
      */
-    public void clear() {
+    public void clear()
+    {
         firstNode.setNextNode(null);
         firstNode = null;
         size = 0;
@@ -75,10 +80,12 @@ public class LinkedList<T> {
      *            the index to be returned.
      * @return the entry at the given index.
      */
-    public T getEntry(int index) {
+    public T getEntry(int index)
+    {
         int seekIndex = 0;
         Node<T> curr = firstNode;
-        while (seekIndex < index) {
+        while (seekIndex < index)
+        {
             curr = curr.getNextNode();
             seekIndex++;
         }
@@ -93,21 +100,26 @@ public class LinkedList<T> {
      *            the position
      * @return the node at that position
      */
-    private Node<T> getNodeAt(int givenPostiion) {
+    private Node<T> getNodeAt(int givenPostiion)
+    {
         Node<T> currentNode = firstNode;
         if ((firstNode != null) && (1 <= givenPostiion)
-            && (givenPostiion <= size)) {
+            && (givenPostiion <= size))
+        {
 
             // Traverse the chain to locate the desired node
             // (skipped if givenPosition is 1)
-            for (int counter = 1; counter < givenPostiion; counter++) {
+            for (int counter = 1; counter < givenPostiion; counter++)
+            {
                 currentNode = currentNode.getNextNode();
             }
         }
-        if (currentNode != null) {
+        if (currentNode != null)
+        {
             return currentNode;
         }
-        else {
+        else
+        {
             return null;
         }
     }
@@ -119,7 +131,8 @@ public class LinkedList<T> {
      * @param newEntry
      *            the entry being added
      */
-    public void addToFirst(T newEntry) {
+    public void addToFirst(T newEntry)
+    {
         Node<T> newNode = new Node<T>(newEntry);
         newNode.setNextNode(firstNode);
         firstNode = newNode;
@@ -134,7 +147,8 @@ public class LinkedList<T> {
      * @param newEntry
      *            the data of the new node
      */
-    public void add(int newPosition, T newEntry) {
+    public void add(int newPosition, T newEntry)
+    {
         Node<T> newNode = new Node<T>(newEntry);
         Node<T> nodeBefore = getNodeAt(newPosition - 1);
         Node<T> nodeAfter = nodeBefore.getNextNode();
@@ -149,13 +163,17 @@ public class LinkedList<T> {
      * @param newEntry
      *            the data being added
      */
-    public void addToLast(T newEntry) {
+    public void addToLast(T newEntry)
+    {
         Node<T> current = firstNode;
-        if (isEmpty()) {
+        if (isEmpty())
+        {
             firstNode = new Node<T>(newEntry);
         }
-        else {
-            for (int i = 0; i < size - 1; i++) {
+        else
+        {
+            for (int i = 0; i < size - 1; i++)
+            {
                 current = current.next;
             }
             current.setNextNode(new Node<T>(newEntry));
@@ -164,19 +182,22 @@ public class LinkedList<T> {
     }
 
 
-    private void insertInOrder(Node nodeToInsert, Object arg) {
+    private void insertInOrder(Node nodeToInsert, Object arg)
+    {
         Songs item = (Songs)nodeToInsert.getData();
         Node<T> currentNode = firstNode;
         Node<T> previousNode = null;
         // Locate insertion point
         while ((currentNode != null) && (item.compare(currentNode.getData(),
-            arg) > 0)) {
+            arg) > 0))
+        {
             previousNode = currentNode;
             currentNode = currentNode.getNextNode();
         } // end while
           // Make the insertion
-        if (previousNode != null) { // Insert between previousNode and
-                                    // currentNode
+        if (previousNode != null)
+        { // Insert between previousNode and
+          // currentNode
             previousNode.setNextNode(nodeToInsert);
             nodeToInsert.setNextNode(currentNode);
         }
@@ -188,17 +209,20 @@ public class LinkedList<T> {
     } // end insertInOrder
 
 
-    public void insertionSort(Object arg) {
+    public void insertionSort(Object arg)
+    {
         // If zero or one item is in the chain, there is
         // nothing to do
-        if (size > 1) {
+        if (size > 1)
+        {
             assert firstNode != null;
             // Break chain into 2 pieces: sorted and
             // unsorted
             Node<T> unsortedPart = firstNode.getNextNode();
             assert unsortedPart != null;
             firstNode.setNextNode(null);
-            while (unsortedPart != null) {
+            while (unsortedPart != null)
+            {
                 Node<T> nodeToInsert = unsortedPart;
                 unsortedPart = unsortedPart.getNextNode();
                 insertInOrder(nodeToInsert, arg);
@@ -215,7 +239,8 @@ public class LinkedList<T> {
      * @param <T>
      *            the generic type.
      */
-    private static class Node<T> {
+    private static class Node<T>
+    {
         // Data stored in the node.
         private T data;
 
@@ -230,7 +255,8 @@ public class LinkedList<T> {
          * @param input
          *            the data to be stored.
          */
-        public Node(T input) {
+        public Node(T input)
+        {
             data = input;
         }
 
@@ -241,7 +267,8 @@ public class LinkedList<T> {
          * @param nextNode
          *            the next node to be referenced.
          */
-        public void setNextNode(Node<T> nextNode) {
+        public void setNextNode(Node<T> nextNode)
+        {
             next = nextNode;
         }
 
@@ -252,7 +279,8 @@ public class LinkedList<T> {
          * @param input
          *            the updated data.
          */
-        public void setData(T input) {
+        public void setData(T input)
+        {
             data = input;
         }
 
@@ -262,7 +290,8 @@ public class LinkedList<T> {
          * 
          * @return the data stored in the node.
          */
-        public T getData() {
+        public T getData()
+        {
             return data;
         }
 
@@ -273,7 +302,8 @@ public class LinkedList<T> {
          * 
          * @return the next node reference.
          */
-        public Node<T> getNextNode() {
+        public Node<T> getNextNode()
+        {
             return next;
         }
     }

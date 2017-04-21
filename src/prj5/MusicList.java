@@ -3,6 +3,7 @@ package prj5;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+<<<<<<< HEAD
 /**
  * A list for Songs objects.
  * 
@@ -13,15 +14,21 @@ import java.util.NoSuchElementException;
  *
  */
 public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
+=======
+public class MusicList extends LinkedList<Songs> implements Iterable<Songs>
+{
+>>>>>>> 175c6d2e3a20e0b71da4ce15c68a952ec274a147
 
     /**
      * strings the song list together
      * 
      * @return string of what's in the list
      */
-    public String toString() {
+    public String toString()
+    {
         String ans = "";
-        for (int i = 0; i < getSize(); i++) {
+        for (int i = 0; i < getSize(); i++)
+        {
             int totalReading = 0;
             int totalArt = 0;
             int totalSports = 0;
@@ -34,16 +41,20 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
                 .getHobbyLiked(2);
             totalMusic += getEntry(i).getHobbyHeard(3) + getEntry(i)
                 .getHobbyLiked(3);
-            if (totalReading == 0) {
+            if (totalReading == 0)
+            {
                 totalReading = 1;
             }
-            if (totalArt == 0) {
+            if (totalArt == 0)
+            {
                 totalArt = 1;
             }
-            if (totalSports == 0) {
+            if (totalSports == 0)
+            {
                 totalSports = 1;
             }
-            if (totalMusic == 0) {
+            if (totalMusic == 0)
+            {
                 totalMusic = 1;
             }
 
@@ -71,7 +82,6 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
         return ans;
     }
 
-    
 
     /**
      * Inner iterator class for the MusicList.
@@ -80,7 +90,8 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
      *            Iterates over song objects
      */
     @SuppressWarnings("hiding")
-    public class MusicListIterator<Songs> implements Iterator<Songs> {
+    public class MusicListIterator<Songs> implements Iterator<Songs>
+    {
         // The index where the iterator is.
         private int index;
 
@@ -89,7 +100,8 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
          * Creates a new MusicListIterator() object.
          * Sets the index at 0.
          */
-        public MusicListIterator() {
+        public MusicListIterator()
+        {
             index = 0;
         }
 
@@ -99,7 +111,8 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
          * 
          * @return true if list has next
          */
-        public boolean hasNext() {
+        public boolean hasNext()
+        {
             return index < getSize();
         }
 
@@ -109,12 +122,15 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
          * 
          * @return next entry
          */
-        public Songs next() {
-            if (hasNext()) {
+        public Songs next()
+        {
+            if (hasNext())
+            {
                 Songs nextEntry = (Songs)getEntry(index++);
                 return nextEntry;
             }
-            else {
+            else
+            {
                 throw new NoSuchElementException("Illegal call to next(); "
                     + "iterator is after end of list.");
             }
@@ -122,7 +138,8 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
     }
 
 
-    public Iterator<Songs> iterator() {
+    public Iterator<Songs> iterator()
+    {
         return new MusicListIterator<Songs>();
     }
 
