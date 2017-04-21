@@ -127,32 +127,7 @@ public class Songs implements Comparator<Object>
         return genre;
     }
 
-    /**
-     * Checks to see if two objects are equal by ensuring they are both objects,
-     * both of the same class, and both have the same title, artist, year, and
-     * genre
-     * 
-     * @param obj
-     *            the song that is being tested for equality
-     * @return boolean of whether or not the two objects are equal
-     */
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (obj == this) {
-            return true;
-        }
-        if (obj.getClass() != this.getClass()) {
-            return false;
-        }
-        Songs other = (Songs) obj;
-        return this.title.equals(other.title)
-                && this.artist.equals(other.artist)
-                && this.genre.equals(other.genre)
-                && this.year == other.getYear();
 
-<<<<<<< HEAD
     /**
      * Checks to see if two objects are equal by ensuring they are both objects,
      * both of the same class, and both have the same title, artist, year, and
@@ -203,22 +178,6 @@ public class Songs implements Comparator<Object>
         }
         else if (compBy.equals("Year"))
         {
-=======
-    }
-    
-    public int compare(Object o1, Object o2)
-    {
-        Songs compSong = (Songs) o1;
-        String compBy = (String) o2;
-
-        if (compBy.equals("Title")) {
-            return this.getTitle().compareTo(compSong.getTitle());
-        } else if (compBy.equals("Artist")) {
-            return this.getArtist().compareTo(compSong.getArtist());
-        } else if (compBy.equals("Genre")) {
-            return this.getGenre().compareTo(compSong.getGenre());
-        } else if (compBy.equals("Year")) {
->>>>>>> 90d440a90142c9df44832f465949395e745fd717
             return this.getYear().compareTo(((Songs)o1).getYear());
         }
 
