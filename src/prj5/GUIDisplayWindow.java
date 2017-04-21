@@ -78,15 +78,10 @@ public class GUIDisplayWindow {
         window.addButton(sortSongTitleButton, WindowSide.NORTH);
         window.addButton(sortYearButton, WindowSide.NORTH);
         window.addButton(sortGenreButton, WindowSide.NORTH);
-<<<<<<< HEAD
         window.addButton(nextButton, WindowSide.NORTH);
         window.addButton(repByHobbyButton, WindowSide.SOUTH);
         window.addButton(repByMajorButton, WindowSide.SOUTH);
         window.addButton(repByRegionButton, WindowSide.SOUTH);
-=======
-        window.addButton(previousButton, WindowSide.NORTH);
-        window.addButton(nextButton, WindowSide.NORTH);
->>>>>>> 175c6d2e3a20e0b71da4ce15c68a952ec274a147
         window.addButton(quitButton, WindowSide.SOUTH);
 
         repByHobbyButton.onClick(this, "clickedSortHobby");

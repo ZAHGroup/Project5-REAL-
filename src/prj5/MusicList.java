@@ -3,7 +3,6 @@ package prj5;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-<<<<<<< HEAD
 /**
  * A list for Songs objects.
  * 
@@ -13,11 +12,8 @@ import java.util.NoSuchElementException;
  * @version 2017.04.16
  *
  */
-public class MusicList extends LinkedList<Songs> implements Iterable<Songs> {
-=======
-public class MusicList extends LinkedList<Songs> implements Iterable<Songs>
+public class MusicList extends LinkedList<Songs> implements Iterable<Songs> 
 {
->>>>>>> 175c6d2e3a20e0b71da4ce15c68a952ec274a147
 
     /**
      * strings the song list together
