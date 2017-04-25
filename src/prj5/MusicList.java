@@ -63,7 +63,7 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs>
             System.out.println("Heard");
             System.out.println("reading:" + ((getEntry(i).getHobbyHeard(0)
                 * 100) / totalReading) + " art:" + ((getEntry(i).getHobbyHeard(
-                    1) * 100) / totalArt) + " sports:" + ((getEntry(i)
+                    1) * 100)  / totalArt) + " sports:" + ((getEntry(i)
                         .getHobbyHeard(2) * 100) / totalSports) + " music"
                 + ((getEntry(i).getHobbyHeard(3) * 100) / totalMusic));
             System.out.println("Likes");

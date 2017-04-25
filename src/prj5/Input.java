@@ -9,8 +9,6 @@ import java.util.Scanner;
  * read the input files.
  * 
  * @author Zorian Thornton zorian15
- * @author Ahmad Ayub aayub98
- *  @author Harshitha Narayanan hnar
  * @version 2017.04.16
  *
  */

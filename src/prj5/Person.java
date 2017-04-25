@@ -1,6 +1,5 @@
 package prj5;
 
-import java.util.Comparator;
 
 /**
  * This person class that stores the information
@@ -11,7 +10,7 @@ import java.util.Comparator;
  * @version 2017.04.17
  *
  */
-public class Person implements Comparator
+public class Person 
 {
     // Hobby of the person
     private String hobby;
@@ -61,11 +60,49 @@ public class Person implements Comparator
     {
         return major;
     }
+    
+    /**
+     * Strings together hobby, region, and major of the person
+     * 
+     * @return the hobby, major and region of this person as a string
+     */
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
 
-    public int compare(Object arg0, Object arg1)
-    {
-        // TODO Auto-generated method stub
-        return 0;
+        builder.append(hobby);
+        builder.append(", ");
+        builder.append(region);
+        builder.append(", ");
+        builder.append(major);
+
+        return builder.toString();
+    }
+    
+    /**
+     * Determines if this Person object is the same at the argument passed by
+     * checking for a null argument, a non-Person argument, and comparing the
+     * characteristics of the person argument
+     * 
+     * @param obj
+     *            the object that will be compared
+     * @return true if the object passed is a person with the same information
+     */
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+
+        if (obj == null) {
+            return false;
+        }
+
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        Person compPerson = (Person) obj;
+        return this.hobby.equals(compPerson.hobby)
+                && this.major.equals(compPerson.major)
+                && this.region.equals(compPerson.region);
     }
 
 }
