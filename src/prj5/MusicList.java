@@ -122,6 +122,7 @@ public class MusicList extends LinkedList<Songs> implements Iterable<Songs>
         {
             if (hasNext())
             {
+                @SuppressWarnings("unchecked")
                 Songs nextEntry = (Songs)getEntry(index++);
                 return nextEntry;
             }

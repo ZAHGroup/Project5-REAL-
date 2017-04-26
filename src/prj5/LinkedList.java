@@ -182,7 +182,7 @@ public class LinkedList<T>
     }
 
 
-    private void insertInOrder(Node nodeToInsert, Object arg)
+    private void insertInOrder(Node<T> nodeToInsert, Object arg)
     {
         Songs item = (Songs)nodeToInsert.getData();
         Node<T> currentNode = firstNode;
